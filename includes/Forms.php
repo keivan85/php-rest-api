@@ -148,4 +148,41 @@ class Forms
     {
         $this->ValidationError[$Control] = $ErrorMessage;
     }
+
+    //Methods to access the private attribues
+    public function __get($key) {
+        switch($key) {
+            case 'HTML':
+                return $this->HTML . '</form>';
+                break;
+
+            case 'valid':
+                if (count($this->ValidationError) == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+                break;
+
+            default:
+                die("Accessing the getter attribute {$key} that does not exist. \n");
+        }
+    }
+
+    //Method to set attribute
+    public function __set($key, $value) {
+        switch($key) {
+            case 'StickyData':
+                $this->StickyData = $value;
+                break;
+
+            default:
+                die("Accessing the getter attribute {$key} that does not exist. \n");
+        }
+    }
 }
+
+//Instanciate the Class
+$form = new Forms();
+
+?>
