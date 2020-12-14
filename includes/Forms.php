@@ -150,8 +150,9 @@ class Forms
     }
 
     //Methods to access the private attribues
-    public function __get($key) {
-        switch($key) {
+    public function __get($key)
+    {
+        switch ($key) {
             case 'HTML':
                 return $this->HTML . '</form>';
                 break;
@@ -170,8 +171,9 @@ class Forms
     }
 
     //Method to set attribute
-    public function __set($key, $value) {
-        switch($key) {
+    public function __set($key, $value)
+    {
+        switch ($key) {
             case 'StickyData':
                 $this->StickyData = $value;
                 break;
@@ -184,5 +186,3 @@ class Forms
 
 //Instanciate the Class
 $form = new Forms();
-
-?>
