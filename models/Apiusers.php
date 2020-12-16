@@ -139,4 +139,26 @@ class Apiusers
             return false;
         }
     }
+
+    //verify Auth key of user
+    public function verify_AuthKey()
+    {
+        global $database;
+        $this->auth_key = trim(htmlspecialchars(strip_tags($this->auth_key)));
+
+        $sql = "SELECT apiuser_id, firstname, lastname, email, auth_key FROM " . $this->table . "
+        WHERE auth_key = '" . $database->escape_value($this->auth_key) . "'";
+
+        $result = $database->query($sql);
+        $ApiUserInfo = $database->fetch_row($result);
+
+        if (empty($ApiUserInfo)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
+
+//Instanciate the class Apiusers
+$api_user = new Apiusers();
