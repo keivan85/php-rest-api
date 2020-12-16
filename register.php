@@ -1,3 +1,22 @@
+<?php
+require_once('includes/Forms.php');
+require_once('models/Apiusers.php');
+require_once('includes/Helper.php');
+
+//Making register form
+$form->form_open('register', 'register_form');
+$form->makeInput('First Name', 'firstname');
+$form->makeInput('Last Name', 'lastname');
+$form->makeInputEmail('Your email', 'email');
+$form->makePassword('Enter password', 'password');
+$form->makePassword('Confirm password', 'confirmpassword');
+
+$form->makeSubmit('Register');
+//Making register form
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +42,10 @@
 
       <div class="app_form m-top-50">
         <h2 class="display-5">Register here ...!</h2>
+        <?php
+          //Displaying Register form
+          echo $form->HTML;
+        ?>
       </div>
       <!-- App register form ends -->
 
