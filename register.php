@@ -3,6 +3,37 @@ require_once('includes/Forms.php');
 require_once('models/Apiusers.php');
 require_once('includes/Helper.php');
 
+
+//Regsiter Apiuser process
+if (isset($_POST['Register'])) {
+  $form->StickyData = $_POST;
+  $form->checkEmpty('firstname');
+  $form->checkEmpty('lastname');
+  $form->checkEmpty('email');
+  $form->checkEmpty('password');
+  $form->checkEmpty('confirmpassword');
+
+  $form->compare('password', 'confirmpassword');
+
+  //Check for unique email
+  $EmailAvailable = $api_user->check_email();
+
+  if ($EmailAvailable == FALSE) {
+    $form->raiseCustomError('email', 'Email is already in use ...!');
+  }
+
+  if ($form->valid == TRUE) {
+    //Checking if the registration form is free of errors
+    $api_user->firstname = $_POST['firstname'];
+    $api_user->lastname = $_POST['lastname'];
+    $api_user->email = $_POST['email'];
+    $api_user->password = $_POST['password'];
+
+    //Insert user into database
+    $api_user->create_ApiUser();
+  }
+}
+
 //Making register form
 $form->form_open('register', 'register_form');
 $form->makeInput('First Name', 'firstname');
@@ -43,8 +74,8 @@ $form->makeSubmit('Register');
       <div class="app_form m-top-50">
         <h2 class="display-5">Register here ...!</h2>
         <?php
-          //Displaying Register form
-          echo $form->HTML;
+        //Displaying Register form
+        echo $form->HTML;
         ?>
       </div>
       <!-- App register form ends -->

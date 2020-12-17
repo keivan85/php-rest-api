@@ -36,12 +36,16 @@ class Apiusers
     public function check_email()
     {
         global $database;
+        var_dump($this->email);
+die();
         $this->email = trim(htmlspecialchars(strip_tags($this->email)));
-        $sql = "SELECT * FROM " . $this->table . "WHERE email = '" . $database->escape_value($this->email) . "'";
+        $sql = "SELECT * FROM " . $this->table . " WHERE email = '" . $database->escape_value($this->email) . "'";
 
         $result = $database->query($sql);
 
         $info = $database->fetch_row($result);
+
+
 
         if (empty($info)) {
             return true;
@@ -80,7 +84,11 @@ class Apiusers
                         '" . $database->escape_value($hashed_password) . "',
                         '" . $database->escape_value($auth_key) . "')";
 
+var_dump($sql);
+die();
+
         $user_saved = $database->query($sql);
+
 
         if ($user_saved) {
             global $helper;

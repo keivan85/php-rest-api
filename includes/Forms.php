@@ -112,9 +112,11 @@ class Forms
     {
 
         $Value = "";
-        if (isset($this->StickyData[$ControlName]) == TRUE) {
+        if (!empty($this->StickyData[$ControlName])) {
+
             $Value = $this->StickyData[$ControlName];
         } else {
+
             $this->ValidationError[$ControlName] = 'Must not be empty';
         }
     }

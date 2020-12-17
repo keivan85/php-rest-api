@@ -19,6 +19,20 @@
 
     <div class="container">
         <div class="col-md-8">
+            <?php
+            //Displaying the success session flash message
+            if (isset($_SESSION['flash_message']['success'])) {
+
+            ?>
+                <div class="alert alert-success alert-dismissable m-top-50">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong><?php echo $_SESSION['flash_message']['success']; ?>
+                </div>
+            <?php
+                //Unset session flash message
+                unset($_SESSION['flash_message']['success']);
+            }
+            ?>
             <!-- App login form starts -->
 
             <div class="app_form m-top-50">
