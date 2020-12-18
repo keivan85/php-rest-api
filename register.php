@@ -16,6 +16,7 @@ if (isset($_POST['Register'])) {
   $form->compare('password', 'confirmpassword');
 
   //Check for unique email
+ 
   $EmailAvailable = $api_user->check_email();
 
   if ($EmailAvailable == FALSE) {
@@ -29,8 +30,20 @@ if (isset($_POST['Register'])) {
     $api_user->email = $_POST['email'];
     $api_user->password = $_POST['password'];
 
-    //Insert user into database
-    $api_user->create_ApiUser();
+
+    if ($api_user->check_email() != FALSE) {
+
+      try {
+        //Insert user into database
+
+        $api_user->create_ApiUser();
+
+      } catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+      }
+    } else {
+      $form->raiseCustomError('email', 'The email is already in use ...');
+    }
   }
 }
 
