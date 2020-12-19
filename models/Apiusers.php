@@ -90,7 +90,7 @@ class Apiusers
         if ($user_saved) {
             global $helper;
             $helper->Message = 'Registration Successful Login Here';
-            $helper->Location = 'login.php';
+            $helper->Location = 'login';
             $helper->set_flash_message();
         } else {
             die('Can not save the user register later ...');

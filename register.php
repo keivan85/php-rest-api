@@ -25,17 +25,19 @@ if (isset($_POST['Register'])) {
 
   if ($form->valid == TRUE) {
     //Checking if the registration form is free of errors
-    $api_user->firstname = $_POST['firstname'];
-    $api_user->lastname = $_POST['lastname'];
+
     $api_user->email = $_POST['email'];
-    $api_user->password = $_POST['password'];
 
 
     if ($api_user->check_email() != FALSE) {
 
       try {
-        //Insert user into database
 
+        $api_user->firstname = $_POST['firstname'];
+        $api_user->lastname = $_POST['lastname'];
+        $api_user->password = $_POST['password'];
+        
+        //Insert user into database
         $api_user->create_ApiUser();
 
       } catch (Exception $e) {

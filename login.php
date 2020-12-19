@@ -1,3 +1,10 @@
+<?php
+require_once('includes/Forms.php');
+require_once('models/Apiusers.php');
+require_once('includes/Helper.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +33,7 @@
             ?>
                 <div class="alert alert-success alert-dismissable m-top-50">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Success!</strong><?php echo $_SESSION['flash_message']['success']; ?>
+                    <strong>Success! </strong><?php echo $_SESSION['flash_message']['success']; ?>
                 </div>
             <?php
                 //Unset session flash message
