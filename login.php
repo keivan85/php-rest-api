@@ -3,6 +3,14 @@ require_once('includes/Forms.php');
 require_once('models/Apiusers.php');
 require_once('includes/Helper.php');
 
+
+//Building the login form
+
+$form->form_open('login', 'login');
+
+$form->makeInputEmail('Your email address', 'email');
+$form->makePassword('Your password', 'password');
+$form->makeSubmit('login');
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +52,10 @@ require_once('includes/Helper.php');
 
             <div class="app_form m-top-50">
                 <h2 class="display-5">Login here ...!</h2>
+                <?php
+                //Display the login form
+                echo $form->HTML;
+                ?>
             </div>
             <!-- App login form ends -->
 
