@@ -1,3 +1,10 @@
+<?php
+require_once('includes/Forms.php');
+require_once('models/Apiusers.php');
+require_once('includes/Helper.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

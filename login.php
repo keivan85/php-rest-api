@@ -4,6 +4,46 @@ require_once('models/Apiusers.php');
 require_once('includes/Helper.php');
 
 
+
+
+//login Apiuser process
+
+if (isset($_POST['login'])) {
+    $form->StickyData = $_POST;
+    $form->checkEmpty('email');
+    $form->checkEmpty('password');
+
+    if ($form->valid == TRUE) {
+        $api_user->email = $_POST['email'];
+        $api_user->password = $_POST['password'];
+    }
+
+    //var_dump($api_user->check_user_credentials());
+    //die();
+    //Check login
+    if ($user_info = $api_user->check_user_credentials()) {
+
+        //Setting logged in user data in session
+        $_SESSION['userdata']['islogged_in'] = 1; //Initializing islogged_in variable
+        $_SESSION['userdata']['apiuser_id'] = $user_info['apiuser_id'];
+
+        //user helper class for setting flash messages
+        //Redirect the user to profile view
+
+        global $helper;
+        $helper->Location = 'profile';
+        $helper->Message = 'You have successfully logged in';
+
+        $helper->set_flash_message();
+
+        exit;
+    } else {
+        $form->raiseCustomError('email', 'Invalid username or password');
+    }
+}
+
+
+
 //Building the login form
 
 $form->form_open('login', 'login');

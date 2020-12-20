@@ -123,11 +123,14 @@ class Apiusers
         $sql = "SELECT apiuser_id, firstname, lastname, email, password FROM " . $this->table . "
         WHERE email = '" . $database->escape_value($this->email) . "'";
 
+
         $result = $database->query($sql);
+
 
         $user_info = $database->fetch_row($result);
 
-        if (!empty($userinfo)) {
+
+        if (!empty($user_info)) {
             //Match password
             $hashed_password = $user_info['password'];
 
