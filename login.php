@@ -18,9 +18,6 @@ if (isset($_POST['login'])) {
         $api_user->password = $_POST['password'];
     }
 
-    //var_dump($api_user->check_user_credentials());
-    //die();
-    //Check login
     if ($user_info = $api_user->check_user_credentials()) {
 
         //Setting logged in user data in session
@@ -86,6 +83,36 @@ $form->makeSubmit('login');
             <?php
                 //Unset session flash message
                 unset($_SESSION['flash_message']['success']);
+            }
+            ?>
+
+            <?php
+            //Displaying the warining session flash message
+            if (isset($_SESSION['flash_message']['warning'])) {
+
+            ?>
+                <div class="alert alert-warning alert-dismissable m-top-50">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Warning! </strong><?php echo $_SESSION['flash_message']['warning']; ?>
+                </div>
+            <?php
+                //Unset session flash message
+                unset($_SESSION['flash_message']['warning']);
+            }
+            ?>
+
+            <?php
+            //Displaying the error session flash message
+            if (isset($_SESSION['flash_message']['error'])) {
+
+            ?>
+                <div class="alert alert-danger alert-dismissable m-top-50">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Error! </strong><?php echo $_SESSION['flash_message']['error']; ?>
+                </div>
+            <?php
+                //Unset session flash message
+                unset($_SESSION['flash_message']['error']);
             }
             ?>
             <!-- App login form starts -->

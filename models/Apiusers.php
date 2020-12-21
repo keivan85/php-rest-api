@@ -104,8 +104,8 @@ class Apiusers
 
         $this->apiuser_id = intval($this->apiuser_id);
 
-        $sql = "SELECT apiuser_id, firstname, lastname, email, auth_key FROM" . $this->table . "
-        WHERE apiuser_id = '. $this->apiuser_id. '";
+        $sql = "SELECT apiuser_id, firstname, lastname, email, auth_key FROM " . $this->table . "
+        WHERE apiuser_id = '$this->apiuser_id'";
 
         $result = $database->query($sql);
         $userinfo = $database->fetch_row($result);
