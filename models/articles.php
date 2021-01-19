@@ -80,4 +80,46 @@ class Articles
 
         return !empty($article_info) ? $article_info : false;
     }
+
+
+    //Update article
+    public function update_article()
+    {
+        $this->article_id = filter_var($this->article_id, FILTER_VALIDATE_INT);
+        $this->user_id = filter_var($this->user_id, FILTER_VALIDATE_INT);
+        $this->category_id = filter_var($this->category_id, FILTER_VALIDATE_INT);
+
+        global $database;
+
+        $sql = "UPDATE " . $this->table . " SET
+            category_id ='" . $database->escape_value($this->category_id) . "',
+            article_title = '" . $database->escape_value($this->article_title) . "',
+            article_body = '" . $database->escape_value($this->article_body) . "'
+            WHERE article_id = '" . $database->escape_value($this->article_id) . " &&
+            user_id = '" . $database->escape_value($this->user_id) . "' ";
+
+        $article_updated = $database->query($sql);
+
+        return $article_updated ? true : false;
+    }
+
+    //Delete article
+    public function delete_article()
+    {
+        $this->article_id = filter_var($this->article_id, FILTER_VALIDATE_INT);
+        $this->user_id = filter_var($this->user_id, FILTER_VALIDATE_INT);
+
+        global $database;
+
+        $sql = "DELETE FROM " . $this->table . "
+        WHERE article_id = '" . $database->escape_value($this->article_title) . "' && 
+        user_id = '" . $database->escape_value($this->user_id) . "' ";
+
+        $article_deleted = $database->query($sql);
+
+        return $article_deleted ? true : false;
+    }
 }
+
+//Instanse of the class
+$articles = new Articles();
