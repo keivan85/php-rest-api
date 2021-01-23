@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
             }
 
 
-            //Update article
+            //Delete article
             if ($articles->delete_article()) {
                 echo json_encode(array('message' => 'Article ' . $articles->article_id . ' is deleted successfully.'));
             } else {
