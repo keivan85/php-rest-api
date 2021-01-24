@@ -13,7 +13,7 @@ include_once '../../models/Articles.php';
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 
     //Validate content type
-    if ($_SERVER['REQUEST_TYPE'] === 'application/json') {
+    if ($_SERVER['CONTENT_TYPE'] === 'application/json') {
 
         //Get te auth key from the header
         $headers = apache_request_headers();

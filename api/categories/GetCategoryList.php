@@ -6,7 +6,7 @@ header('Access-Control-Allow-Method: GET');
 header('Access-Control-Allow-Headers: Origin, Content-type, Auth_key, Accept');
 
 include_once '../../models/Apiusers.php';
-include_once '../../models/Articles.php';
+include_once '../../models/Categories.php';
 
 
 //Validate the request
@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         if ($Verified == TRUE) {
 
-            //Get latest article
-            $latest_articles = $articles->get_latest_articles();
+            //Get categories list
+            $category_list = $categories->get_category_list();
 
-            echo json_decode($latest_articles);
+            echo json_decode($category_list);
         } else {
             die(header('HTTP/1.1 401 Unauthorized key used'));
         }
