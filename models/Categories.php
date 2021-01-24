@@ -56,4 +56,21 @@ class Categories
         return $article_info = $database->fetch_array($result);
 
     }
+
+
+    /**
+     * Get list of categories
+     */
+    public function get_category_list() {
+        global $database;
+
+        $sql = "SELECT category_id, category_title FROM ".$this->table;
+
+        $result = $database->query($sql);
+
+        return $category_list = $database->fetch_array($result);
+    }
 }
+
+//Instance of the class
+$categories = new Categories();
