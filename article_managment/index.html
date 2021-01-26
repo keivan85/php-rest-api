@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Hub | Single page app</title>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <div id="user_info" class="col-5 float-right">
+                Hello <span id="display"></span>!
+                <a href="javascript:void(0)" id="log_out" class="btn btn-small btn-danger float-right">Logout</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="auth-page" class="m-top-50">
+            <div class="container">
+                <form id="login_form" method="POST" action="http://localhost/api_code/api/users/CheckUsersCredentials"
+                class="form-signin">
+        
+                <div class="text-center mb-4">
+                    <h3 class="h3 mb-3 font-weight-normal">Article Managment App</h3>
+                    <p>Login to manage your articles ... or <a href="javascript:void(0)">Register</a></p>
+                </div>
+
+                <div class="form-lable-group">
+                    <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required autofocus>
+                    <label for="loginEmail">Email address</label>
+                </div>
+
+                <div class="form-lable-group">
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                    <label for="loginPassword">Password</label>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <p class="mt-5 mb-3 text-muted text-center">Article managment app</p>
+            </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+
+
+</body>
+
+</html>
