@@ -23,28 +23,75 @@
 
         <div id="auth-page" class="m-top-50">
             <div class="container">
+
+                <!--
+                    Login form
+                -->
                 <form id="login_form" method="POST" action="http://localhost/api_code/api/users/CheckUsersCredentials"
-                class="form-signin">
-        
-                <div class="text-center mb-4">
-                    <h3 class="h3 mb-3 font-weight-normal">Article Managment App</h3>
-                    <p>Login to manage your articles ... or <a href="javascript:void(0)">Register</a></p>
-                </div>
+                    class="form-signin">
 
-                <div class="form-lable-group">
-                    <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required autofocus>
-                    <label for="loginEmail">Email address</label>
-                </div>
+                    <div class="text-center mb-4">
+                        <h3 class="h3 mb-3 font-weight-normal">Article Managment App</h3>
+                        <p>Login to manage your articles ... or <a href="javascript:void(0)">Register</a></p>
+                    </div>
 
-                <div class="form-lable-group">
-                    <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
-                    <label for="loginPassword">Password</label>
-                </div>
+                    <div class="form-lable-group">
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required
+                            autofocus>
+                        <label for="loginEmail">Email address</label>
+                    </div>
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                <p class="mt-5 mb-3 text-muted text-center">Article managment app</p>
-            </form>
+                    <div class="form-lable-group">
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                        <label for="loginPassword">Password</label>
+                    </div>
 
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <p class="mt-5 mb-3 text-muted text-center">Article managment app</p>
+                </form>
+
+                <!--
+                Registration form
+            -->
+
+                <form id="register_form" method="POST" action="http://localhost/api_code/api/users/CreateUsers"
+                    class="form-register">
+
+                    <div class="text-center mb-4">
+                        <h1 class="h3 mb-3 font-weight-normal">Article App</h1>
+                        <p>Register here. If you are already a memebr <a href="javascript:void(0)" id="login">Login</a>
+                        </p>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="text" id="firstname" class="form-control" placeholder="Firstname" required
+                            autofocus>
+                        <label for="firstname">Firstname</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="text" id="lastname" class="form-control" placeholder="Firstname" required
+                            autofocus>
+                        <label for="lastname">Lastname</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="text" id="registerEmail" class="form-control" placeholder="Firstname" required
+                            autofocus>
+                        <label for="registerEmail">Email Address</label>
+                    </div>
+
+
+                    <div class="form-lable-group">
+                        <input type="password" id="registerPassword" class="form-control" placeholder="Password"
+                            required>
+                        <label for="registerPassword">Password</label>
+                    </div>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+                    <p class="mt-5 mb-3 text-muted text-center">Article managment app</p>
+
+                </form>
             </div>
         </div>
 
