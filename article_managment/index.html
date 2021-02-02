@@ -7,6 +7,7 @@
     <title>Article Hub | Single page app</title>
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/authform.css" />
 
 </head>
 
@@ -94,6 +95,44 @@
                 </form>
             </div>
         </div>
+
+        <!--
+            App page starts
+        -->
+        <div id="app-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-9">
+                        <div id="all_articles block-card">
+                            <div class="row article_header">
+                                <div class="col-6">
+                                    <a href="javascript:void(0)" id="create_article_btn"
+                                        class="btn btn-small btn-success">Create article</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="create_panel" class="block-card m-bot-40">
+                            <h3>Create an article</h3>
+                            <form id="create_article" method="POST"
+                                action="http://localhost/api_code/api/articles/CreateArticles">
+                                <label for="title" class="sr-only">Title</label>
+                                <input type="text" class="form-control" id="article_title" placeholder="Title">
+
+                                <label for="description" class="sr-only">Description</label>
+                                <textarea id="article_body" class="form-control m-top-20"
+                                    placeholder="Description"></textarea>
+
+                                <select id="category_select" class="form-control m-top-20" required></select>
+
+                                <input type="submit" class="btn btn-primary m-top-20" value="Post Article" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
