@@ -128,12 +128,53 @@
                                 <input type="submit" class="btn btn-primary m-top-20" value="Post Article" />
                             </form>
                         </div>
+
+                        <div id="edit_panel" class="block-card m-bot-40">
+                            <h3>Edit an article</h3>
+                            <form id="edit_article" method="POST"
+                                action="http://localhost/api_code/api/articles/EditArticle">
+                                <label for="title" class="sr-only">Title</label>
+                                <input type="text" class="form-control" id="edit_article_title" placeholder="Title">
+
+                                <label for="description" class="sr-only">Description</label>
+                                <textarea id="edit_article_body" class="form-control m-top-20"
+                                    placeholder="Description"></textarea>
+
+                                <select id="edit_category_select" class="form-control m-top-20" required></select>
+
+                                <input id="edit_user_id" type="hidden" name="edit_user_id">
+                                <input id="edit_article_id" type="hidden" name="edit_article_id">
+                                <input type="submit" class="btn btn-primary m-top-20" value="Edit Article" />
+                            </form>
+                        </div>
+
+                        <div id="article_section">
+                            <div class="article_holder block-card m-top-20">
+                                <h5 class="article_title">Article title</h5>
+                                <p>This is going to be random</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-3">
+                        <div class="block-card">
+                            <h5>Categories</h5>
+                            <ul id="category_block">
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
 
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">Rest API development</span>
+            </div>
+        </footer>
     </div>
 
     <script src="assets/js/jquery.min.js"></script>
